@@ -92,22 +92,38 @@ class GiftCell: GiftBannerCell {
     private func startNumAnimation(_ sendCount: Int, befCount: Int, completion: @escaping () -> Void) {
         
         count += 1
-
-        UIView.animate(withDuration: 0.25, animations: {
-            self.numLabel.text = "x\(self.count)"
-            self.numLabel.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
-            self.numLabel.transform = CGAffineTransform(translationX: 3.0, y: 0.0)
+        
+        numLabel.text = "x\(self.count)"
+        let size = numLabel.sizeThatFits(.zero)
+        if numLabel.bounds.width != size.width || numLabel.bounds.height != size.height {
+            numLabel.frame = CGRect(x: self.bounds.width + 5.0, y: self.bounds.height - size.height, width: size.width, height: size.height)
+        }
+        
+        if numLabel.transform.isIdentity {
+            numLabel.layer.removeAllAnimations()
+        }
+        numLabel.transform = .identity
+        
+        UIView.animate(withDuration: 0.15,
+                       delay: 0.0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: .curveLinear,
+                       animations: {
+                        self.numLabel.transform = CGAffineTransform(scaleX: 1.6, y: 1.6)
         }) { (_) in
-            UIView.animate(withDuration: 0.15, animations: {
+            
+            UIView.animate(withDuration: 0.1, animations: {
                 self.numLabel.transform = .identity
             })
-
+            
             if sendCount > 1 {
                 self.startNumAnimation(sendCount - 1, befCount: self.count, completion: completion)
             } else {
                 self.animationState = .end
                 completion()
             }
+            
         }
     }
     
@@ -123,7 +139,6 @@ class GiftCell: GiftBannerCell {
                        animations: { self.animationForDisplay() })
         { _ in
             
-            self.numLabel.frame = CGRect(x: self.bounds.width + 5.0, y: 20.0, width: 100.0, height: self.bounds.height-20.0)
             self.numLabel.alpha = 1.0
             self.insertNumAnimation(self.giftModel)
         }
