@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     func json() -> [String: Any] {
         
         // 1 - 20
-        let sendCount: Int = Int(arc4random() % 20 + 1)
+        let sendCount: Int = Int.random(in: 1..<21)
         // 1001 - 1010
-        let senderId: Int = Int(arc4random() % 10 + 1) + 1000
+        let senderId: Int = Int.random(in: 1..<11)  + 1000
         let senderName: String = "XXXXXXXXX"
         // 101 - 110
-        let giftId: Int = Int(arc4random() % 10 + 1) + 100
+        let giftId: Int = Int.random(in: 1..<11) + 100
         let giftName: String = "礼"
         
         return  ["sendCount": sendCount,
