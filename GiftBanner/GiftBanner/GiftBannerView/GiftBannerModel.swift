@@ -10,12 +10,12 @@ import Foundation
 
 struct GiftModel {
     
-    var sendCount : Int    = 0  // 礼物数量
+    var sendCount : Int = 0  // 礼物数量
     
-    var senderId   : Int   = 0   // 送礼者 id
-    var senderName : String = "" // 送礼者 name
+    var senderId   : Int = 0  // 送礼者 id
+    var senderName : String = ""  // 送礼者 name
 
-    var giftId   : Int    = 0   // 礼物 id
+    var giftId   : Int = 0  // 礼物 id
     var giftName : String = ""  // 礼物 name
     
     var identifier : String = "" // model id
@@ -45,5 +45,4 @@ struct GiftModel {
         
         identifier = "\(senderId)-\(giftId)"
     }
-    
 }

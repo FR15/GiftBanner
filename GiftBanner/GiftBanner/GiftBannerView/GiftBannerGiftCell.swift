@@ -123,7 +123,6 @@ class GiftCell: GiftBannerCell {
                 self.animationState = .end
                 completion()
             }
-            
         }
     }
     
@@ -150,7 +149,6 @@ class GiftCell: GiftBannerCell {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(dismissAnimation), object: nil)
         
         if (self.animationState == .start) {
-            
             if waitingGift != nil {
                 waitingGift!.sendCount = gift.sendCount + waitingGift!.sendCount
             } else {

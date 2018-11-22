@@ -30,7 +30,6 @@ extension GiftBannerViewController {
         }
         
         if (cells.count > 0) { // 数字连续递增
-            
             if let cell: GiftCell = cells.first as? GiftCell {
                 cell.insertNumAnimation(gift)
             }
@@ -69,7 +68,6 @@ extension GiftBannerViewController {
             var y: CGFloat = 5.0
             if temCell != nil { y = temCell!.frame.maxY + 5.0 }
             if cell.displaying {
-                
                 if (cell.frame.origin.y != y) {
                     UIView.animate(withDuration: 0.05) {
                         cell.frame.origin.y = y
@@ -83,7 +81,7 @@ extension GiftBannerViewController {
     }
 }
 
-// MAEK: GiftBannerCellDelegate
+// MARK: GiftBannerCellDelegate
 extension GiftBannerViewController: GiftBannerCellDelegate {
     
     func dismiss(_ bannerCell: GiftBannerCell) {

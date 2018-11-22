@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB155C3721A57B4300D7C10F /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB155C3621A57B4300D7C10F /* CaptureViewController.swift */; };
 		BBD4D27A218BE6F100854167 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D279218BE6F100854167 /* AppDelegate.swift */; };
 		BBD4D27C218BE6F100854167 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D27B218BE6F100854167 /* ViewController.swift */; };
 		BBD4D27F218BE6F100854167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD4D27D218BE6F100854167 /* Main.storyboard */; };
@@ -16,9 +17,12 @@
 		BBD4D28F218BEB3700854167 /* GiftBannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D28E218BEB3700854167 /* GiftBannerModel.swift */; };
 		BBD4D291218BEB4900854167 /* GiftBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D290218BEB4900854167 /* GiftBannerCell.swift */; };
 		BBD4D293218BEEA100854167 /* GiftBannerGiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D292218BEEA100854167 /* GiftBannerGiftCell.swift */; };
+		BBD8437E219420AF00101A4F /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD8437D219420AF00101A4F /* ChatModel.swift */; };
+		BBFC6D5021A6B21A000250B9 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC6D4F21A6B21A000250B9 /* CaptureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB155C3621A57B4300D7C10F /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		BBD4D276218BE6F100854167 /* GiftBanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftBanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD4D279218BE6F100854167 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD4D27B218BE6F100854167 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +34,8 @@
 		BBD4D28E218BEB3700854167 /* GiftBannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBannerModel.swift; sourceTree = "<group>"; };
 		BBD4D290218BEB4900854167 /* GiftBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBannerCell.swift; sourceTree = "<group>"; };
 		BBD4D292218BEEA100854167 /* GiftBannerGiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBannerGiftCell.swift; sourceTree = "<group>"; };
+		BBD8437D219420AF00101A4F /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		BBFC6D4F21A6B21A000250B9 /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,11 +49,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB155BE721A53E3500D7C10F /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				BB155C3621A57B4300D7C10F /* CaptureViewController.swift */,
+				BBFC6D4F21A6B21A000250B9 /* CaptureView.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		BB406C4121A69B9F001ECFEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BBD4D26D218BE6F100854167 = {
 			isa = PBXGroup;
 			children = (
 				BBD4D278218BE6F100854167 /* GiftBanner */,
 				BBD4D277218BE6F100854167 /* Products */,
+				BB406C4121A69B9F001ECFEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +85,8 @@
 		BBD4D278218BE6F100854167 /* GiftBanner */ = {
 			isa = PBXGroup;
 			children = (
+				BB155BE721A53E3500D7C10F /* Capture */,
+				BBD8437C2194208F00101A4F /* ChatView */,
 				BBD4D28B218BEB0600854167 /* GiftBannerView */,
 				BBD4D279218BE6F100854167 /* AppDelegate.swift */,
 				BBD4D27B218BE6F100854167 /* ViewController.swift */,
@@ -82,6 +107,14 @@
 				BBD4D292218BEEA100854167 /* GiftBannerGiftCell.swift */,
 			);
 			path = GiftBannerView;
+			sourceTree = "<group>";
+		};
+		BBD8437C2194208F00101A4F /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				BBD8437D219420AF00101A4F /* ChatModel.swift */,
+			);
+			path = ChatView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,8 +189,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBD4D27C218BE6F100854167 /* ViewController.swift in Sources */,
+				BB155C3721A57B4300D7C10F /* CaptureViewController.swift in Sources */,
+				BBFC6D5021A6B21A000250B9 /* CaptureView.swift in Sources */,
 				BBD4D291218BEB4900854167 /* GiftBannerCell.swift in Sources */,
 				BBD4D28F218BEB3700854167 /* GiftBannerModel.swift in Sources */,
+				BBD8437E219420AF00101A4F /* ChatModel.swift in Sources */,
 				BBD4D27A218BE6F100854167 /* AppDelegate.swift in Sources */,
 				BBD4D28D218BEB1F00854167 /* GiftBannerViewController.swift in Sources */,
 				BBD4D293218BEEA100854167 /* GiftBannerGiftCell.swift in Sources */,
