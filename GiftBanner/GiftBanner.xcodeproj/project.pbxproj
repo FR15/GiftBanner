@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BB155C3721A57B4300D7C10F /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB155C3621A57B4300D7C10F /* CaptureViewController.swift */; };
+		BB2FC25521A7A74400FF6327 /* Passthrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC25421A7A74400FF6327 /* Passthrough.metal */; };
+		BB2FC26521ABEFBE00FF6327 /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC26421ABEFBE00FF6327 /* H264Encoder.m */; };
 		BBD4D27A218BE6F100854167 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D279218BE6F100854167 /* AppDelegate.swift */; };
 		BBD4D27C218BE6F100854167 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D27B218BE6F100854167 /* ViewController.swift */; };
 		BBD4D27F218BE6F100854167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD4D27D218BE6F100854167 /* Main.storyboard */; };
@@ -23,6 +25,11 @@
 
 /* Begin PBXFileReference section */
 		BB155C3621A57B4300D7C10F /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		BB2FC25421A7A74400FF6327 /* Passthrough.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Passthrough.metal; sourceTree = "<group>"; };
+		BB2FC25621A7A78400FF6327 /* OperationShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OperationShaderTypes.h; sourceTree = "<group>"; };
+		BB2FC26221ABEFBD00FF6327 /* GiftBanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GiftBanner-Bridging-Header.h"; sourceTree = "<group>"; };
+		BB2FC26321ABEFBE00FF6327 /* H264Encoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Encoder.h; sourceTree = "<group>"; };
+		BB2FC26421ABEFBE00FF6327 /* H264Encoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
 		BBD4D276218BE6F100854167 /* GiftBanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftBanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD4D279218BE6F100854167 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD4D27B218BE6F100854167 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,8 +61,20 @@
 			children = (
 				BB155C3621A57B4300D7C10F /* CaptureViewController.swift */,
 				BBFC6D4F21A6B21A000250B9 /* CaptureView.swift */,
+				BB2FC25421A7A74400FF6327 /* Passthrough.metal */,
+				BB2FC25621A7A78400FF6327 /* OperationShaderTypes.h */,
 			);
 			path = Capture;
+			sourceTree = "<group>";
+		};
+		BB2FC26121ABEF9300FF6327 /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				BB2FC26321ABEFBE00FF6327 /* H264Encoder.h */,
+				BB2FC26421ABEFBE00FF6327 /* H264Encoder.m */,
+				BB2FC26221ABEFBD00FF6327 /* GiftBanner-Bridging-Header.h */,
+			);
+			path = Encoder;
 			sourceTree = "<group>";
 		};
 		BB406C4121A69B9F001ECFEC /* Frameworks */ = {
@@ -85,6 +104,7 @@
 		BBD4D278218BE6F100854167 /* GiftBanner */ = {
 			isa = PBXGroup;
 			children = (
+				BB2FC26121ABEF9300FF6327 /* Encoder */,
 				BB155BE721A53E3500D7C10F /* Capture */,
 				BBD8437C2194208F00101A4F /* ChatView */,
 				BBD4D28B218BEB0600854167 /* GiftBannerView */,
@@ -149,6 +169,7 @@
 				TargetAttributes = {
 					BBD4D275218BE6F100854167 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -188,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB2FC26521ABEFBE00FF6327 /* H264Encoder.m in Sources */,
 				BBD4D27C218BE6F100854167 /* ViewController.swift in Sources */,
 				BB155C3721A57B4300D7C10F /* CaptureViewController.swift in Sources */,
 				BBFC6D5021A6B21A000250B9 /* CaptureView.swift in Sources */,
@@ -196,6 +218,7 @@
 				BBD8437E219420AF00101A4F /* ChatModel.swift in Sources */,
 				BBD4D27A218BE6F100854167 /* AppDelegate.swift in Sources */,
 				BBD4D28D218BEB1F00854167 /* GiftBannerViewController.swift in Sources */,
+				BB2FC25521A7A74400FF6327 /* Passthrough.metal in Sources */,
 				BBD4D293218BEEA100854167 /* GiftBannerGiftCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,7 +365,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97FKU45XH7;
 				INFOPLIST_FILE = GiftBanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -350,6 +375,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fr.GiftBanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GiftBanner/Encoder/GiftBanner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -359,7 +386,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97FKU45XH7;
 				INFOPLIST_FILE = GiftBanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -367,6 +396,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fr.GiftBanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GiftBanner/Encoder/GiftBanner-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bIn-k9-ac2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,9 +37,73 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TGs-I8-8Pr">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="4qP-ha-wna">
+                            <connections>
+                                <segue destination="G4y-FQ-lCT" kind="show" id="Md7-k9-XqX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1087" y="157"/>
+        </scene>
+        <!--Capture View Controller-->
+        <scene sceneID="e9A-1S-5Vr">
+            <objects>
+                <viewController id="G4y-FQ-lCT" customClass="CaptureViewController" customModule="GiftBanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OR7-X7-qNw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="g5g-dN-E6g" customClass="CaptureView" customModule="GiftBanner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mtkView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tc-sM-1QJ">
+                                <rect key="frame" x="168.5" y="592" width="38" height="30"/>
+                                <state key="normal" title="Open"/>
+                                <connections>
+                                    <action selector="open:" destination="G4y-FQ-lCT" eventType="touchUpInside" id="k3o-VV-lFH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g5g-dN-E6g" firstAttribute="leading" secondItem="PBg-t6-Jfh" secondAttribute="leading" id="1aJ-r0-OsA"/>
+                            <constraint firstItem="PBg-t6-Jfh" firstAttribute="bottom" secondItem="2Tc-sM-1QJ" secondAttribute="bottom" constant="45" id="ARP-JK-mVJ"/>
+                            <constraint firstItem="PBg-t6-Jfh" firstAttribute="trailing" secondItem="g5g-dN-E6g" secondAttribute="trailing" id="Sfm-iQ-IO7"/>
+                            <constraint firstItem="2Tc-sM-1QJ" firstAttribute="centerX" secondItem="g5g-dN-E6g" secondAttribute="centerX" id="TsE-c2-zea"/>
+                            <constraint firstItem="g5g-dN-E6g" firstAttribute="top" secondItem="PBg-t6-Jfh" secondAttribute="top" id="q8M-GL-fHK"/>
+                            <constraint firstItem="PBg-t6-Jfh" firstAttribute="bottom" secondItem="g5g-dN-E6g" secondAttribute="bottom" id="r4q-lN-Pys"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PBg-t6-Jfh"/>
+                    </view>
+                    <connections>
+                        <outlet property="mtkView" destination="g5g-dN-E6g" id="QWh-hg-PhV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6U-hK-81c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1904.8" y="156.97151424287858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vY6-3k-3Bb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bIn-k9-ac2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qLu-X4-n2S">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OiE-Jz-wON"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VY9-Cl-zik" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="285.60000000000002" y="156.97151424287858"/>
         </scene>
     </scenes>
 </document>
