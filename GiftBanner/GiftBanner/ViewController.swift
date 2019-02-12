@@ -10,47 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func json() -> [String: Any] {
-        
-        // 1 - 20
-        let sendCount: Int = Int.random(in: 1..<21)
-        // 1001 - 1010
-        let senderId: Int = Int.random(in: 1..<11)  + 1000
-        let senderName: String = "XXXXXXXXX"
-        // 101 - 110
-        let giftId: Int = Int.random(in: 1..<11) + 100
-        let giftName: String = "礼"
-        
-        return  ["sendCount": sendCount,
-                 "senderId": senderId,
-                 "senderName": senderName,
-                 "giftId": giftId,
-                 "giftName": giftName]
-    }
-    
-    weak var bannerViewController: GiftBannerViewController!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        let v = GiftBannerViewController()
-        addChild(v)
-        bannerViewController = v
-        
-        bannerViewController.view.frame = CGRect(x: 0.0, y: 100.0,
-                              width: view.bounds.width * 0.6,
-                              height: view.bounds.height - 300.0)
-        view.addSubview(bannerViewController.view)
+
+        let fr = FRBannerTestViewController()
+        self.addChild(fr)
+        fr.view.frame = view.bounds
+        self.view.addSubview(fr.view)
     }
-    
-    
-    @IBAction func addOne(_ sender: Any) {
-        
-        bannerViewController.insert(GiftModel(json: json()))
-    }
-    
 }
-
-

@@ -7,29 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB155C3721A57B4300D7C10F /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB155C3621A57B4300D7C10F /* CaptureViewController.swift */; };
-		BB2FC25521A7A74400FF6327 /* Passthrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC25421A7A74400FF6327 /* Passthrough.metal */; };
-		BB2FC26521ABEFBE00FF6327 /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2FC26421ABEFBE00FF6327 /* H264Encoder.m */; };
+		BB3667EE21B627DD00A76F7D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3667ED21B627DD00A76F7D /* AVFoundation.framework */; };
+		BB45A12A22125DF20081E845 /* NSDictionary+TMSafeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45A12722125DF20081E845 /* NSDictionary+TMSafeUtils.m */; };
+		BB45A12B22125DF20081E845 /* NSArray+TMSafeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45A12822125DF20081E845 /* NSArray+TMSafeUtils.m */; };
+		BB45A12C22125DF20081E845 /* NSString+TMSafeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45A12922125DF20081E845 /* NSString+TMSafeUtils.m */; };
+		BB45A13022125F000081E845 /* TMLazyReusePool.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45A12F22125F000081E845 /* TMLazyReusePool.m */; };
+		BB4D2B8E22127258004572A8 /* FRBannerGiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4D2B8D22127258004572A8 /* FRBannerGiftModel.m */; };
+		BB4D2B9122127635004572A8 /* FRBannerNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4D2B9022127635004572A8 /* FRBannerNormalCell.m */; };
 		BBD4D27A218BE6F100854167 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D279218BE6F100854167 /* AppDelegate.swift */; };
 		BBD4D27C218BE6F100854167 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D27B218BE6F100854167 /* ViewController.swift */; };
 		BBD4D27F218BE6F100854167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD4D27D218BE6F100854167 /* Main.storyboard */; };
 		BBD4D281218BE6F200854167 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBD4D280218BE6F200854167 /* Assets.xcassets */; };
 		BBD4D284218BE6F200854167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBD4D282218BE6F200854167 /* LaunchScreen.storyboard */; };
-		BBD4D28D218BEB1F00854167 /* GiftBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D28C218BEB1F00854167 /* GiftBannerViewController.swift */; };
-		BBD4D28F218BEB3700854167 /* GiftBannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D28E218BEB3700854167 /* GiftBannerModel.swift */; };
-		BBD4D291218BEB4900854167 /* GiftBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D290218BEB4900854167 /* GiftBannerCell.swift */; };
-		BBD4D293218BEEA100854167 /* GiftBannerGiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4D292218BEEA100854167 /* GiftBannerGiftCell.swift */; };
-		BBD8437E219420AF00101A4F /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD8437D219420AF00101A4F /* ChatModel.swift */; };
-		BBFC6D5021A6B21A000250B9 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC6D4F21A6B21A000250B9 /* CaptureView.swift */; };
+		BBE743932212BF0D00486FF1 /* FRBannerTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE743922212BF0D00486FF1 /* FRBannerTestViewController.m */; };
+		BBFA10A02212649A009C8BB5 /* FRBaseBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFA109F2212649A009C8BB5 /* FRBaseBannerCell.m */; };
+		BBFA10A322126525009C8BB5 /* FRBannerManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFA10A222126525009C8BB5 /* FRBannerManagerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BB155C3621A57B4300D7C10F /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
-		BB2FC25421A7A74400FF6327 /* Passthrough.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Passthrough.metal; sourceTree = "<group>"; };
-		BB2FC25621A7A78400FF6327 /* OperationShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OperationShaderTypes.h; sourceTree = "<group>"; };
 		BB2FC26221ABEFBD00FF6327 /* GiftBanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GiftBanner-Bridging-Header.h"; sourceTree = "<group>"; };
-		BB2FC26321ABEFBE00FF6327 /* H264Encoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Encoder.h; sourceTree = "<group>"; };
-		BB2FC26421ABEFBE00FF6327 /* H264Encoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
+		BB3667ED21B627DD00A76F7D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BB45A12322125DF20081E845 /* NSDictionary+TMSafeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+TMSafeUtils.h"; sourceTree = "<group>"; };
+		BB45A12422125DF20081E845 /* TMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMUtils.h; sourceTree = "<group>"; };
+		BB45A12522125DF20081E845 /* NSString+TMSafeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TMSafeUtils.h"; sourceTree = "<group>"; };
+		BB45A12622125DF20081E845 /* NSArray+TMSafeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TMSafeUtils.h"; sourceTree = "<group>"; };
+		BB45A12722125DF20081E845 /* NSDictionary+TMSafeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+TMSafeUtils.m"; sourceTree = "<group>"; };
+		BB45A12822125DF20081E845 /* NSArray+TMSafeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TMSafeUtils.m"; sourceTree = "<group>"; };
+		BB45A12922125DF20081E845 /* NSString+TMSafeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TMSafeUtils.m"; sourceTree = "<group>"; };
+		BB45A12E22125F000081E845 /* TMLazyReusePool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMLazyReusePool.h; sourceTree = "<group>"; };
+		BB45A12F22125F000081E845 /* TMLazyReusePool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMLazyReusePool.m; sourceTree = "<group>"; };
+		BB4D2B8C22127258004572A8 /* FRBannerGiftModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRBannerGiftModel.h; sourceTree = "<group>"; };
+		BB4D2B8D22127258004572A8 /* FRBannerGiftModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRBannerGiftModel.m; sourceTree = "<group>"; };
+		BB4D2B8F22127635004572A8 /* FRBannerNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRBannerNormalCell.h; sourceTree = "<group>"; };
+		BB4D2B9022127635004572A8 /* FRBannerNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRBannerNormalCell.m; sourceTree = "<group>"; };
 		BBD4D276218BE6F100854167 /* GiftBanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftBanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD4D279218BE6F100854167 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBD4D27B218BE6F100854167 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,12 +47,13 @@
 		BBD4D280218BE6F200854167 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBD4D283218BE6F200854167 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBD4D285218BE6F200854167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBD4D28C218BEB1F00854167 /* GiftBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBannerViewController.swift; sourceTree = "<group>"; };
-		BBD4D28E218BEB3700854167 /* GiftBannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBannerModel.swift; sourceTree = "<group>"; };
-		BBD4D290218BEB4900854167 /* GiftBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBannerCell.swift; sourceTree = "<group>"; };
-		BBD4D292218BEEA100854167 /* GiftBannerGiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBannerGiftCell.swift; sourceTree = "<group>"; };
-		BBD8437D219420AF00101A4F /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
-		BBFC6D4F21A6B21A000250B9 /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
+		BBE743912212BF0D00486FF1 /* FRBannerTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRBannerTestViewController.h; sourceTree = "<group>"; };
+		BBE743922212BF0D00486FF1 /* FRBannerTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRBannerTestViewController.m; sourceTree = "<group>"; };
+		BBFA109E2212649A009C8BB5 /* FRBaseBannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRBaseBannerCell.h; sourceTree = "<group>"; };
+		BBFA109F2212649A009C8BB5 /* FRBaseBannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRBaseBannerCell.m; sourceTree = "<group>"; };
+		BBFA10A122126525009C8BB5 /* FRBannerManagerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRBannerManagerView.h; sourceTree = "<group>"; };
+		BBFA10A222126525009C8BB5 /* FRBannerManagerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRBannerManagerView.m; sourceTree = "<group>"; };
+		BBFA10A422126576009C8BB5 /* FRBannerModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRBannerModelProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,38 +61,60 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB3667EE21B627DD00A76F7D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BB155BE721A53E3500D7C10F /* Capture */ = {
-			isa = PBXGroup;
-			children = (
-				BB155C3621A57B4300D7C10F /* CaptureViewController.swift */,
-				BBFC6D4F21A6B21A000250B9 /* CaptureView.swift */,
-				BB2FC25421A7A74400FF6327 /* Passthrough.metal */,
-				BB2FC25621A7A78400FF6327 /* OperationShaderTypes.h */,
-			);
-			path = Capture;
-			sourceTree = "<group>";
-		};
-		BB2FC26121ABEF9300FF6327 /* Encoder */ = {
-			isa = PBXGroup;
-			children = (
-				BB2FC26321ABEFBE00FF6327 /* H264Encoder.h */,
-				BB2FC26421ABEFBE00FF6327 /* H264Encoder.m */,
-				BB2FC26221ABEFBD00FF6327 /* GiftBanner-Bridging-Header.h */,
-			);
-			path = Encoder;
-			sourceTree = "<group>";
-		};
 		BB406C4121A69B9F001ECFEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB3667ED21B627DD00A76F7D /* AVFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB45A12122125DDE0081E845 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				BB45A12222125DF20081E845 /* TMUtils */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		BB45A12222125DF20081E845 /* TMUtils */ = {
+			isa = PBXGroup;
+			children = (
+				BB45A12322125DF20081E845 /* NSDictionary+TMSafeUtils.h */,
+				BB45A12422125DF20081E845 /* TMUtils.h */,
+				BB45A12522125DF20081E845 /* NSString+TMSafeUtils.h */,
+				BB45A12622125DF20081E845 /* NSArray+TMSafeUtils.h */,
+				BB45A12722125DF20081E845 /* NSDictionary+TMSafeUtils.m */,
+				BB45A12822125DF20081E845 /* NSArray+TMSafeUtils.m */,
+				BB45A12922125DF20081E845 /* NSString+TMSafeUtils.m */,
+			);
+			path = TMUtils;
+			sourceTree = "<group>";
+		};
+		BB45A12D22125E170081E845 /* GiftBanner */ = {
+			isa = PBXGroup;
+			children = (
+				BBE7438D2212B88900486FF1 /* GiftBannerTest */,
+				BB45A12E22125F000081E845 /* TMLazyReusePool.h */,
+				BB45A12F22125F000081E845 /* TMLazyReusePool.m */,
+				BBFA109E2212649A009C8BB5 /* FRBaseBannerCell.h */,
+				BBFA109F2212649A009C8BB5 /* FRBaseBannerCell.m */,
+				BB4D2B8F22127635004572A8 /* FRBannerNormalCell.h */,
+				BB4D2B9022127635004572A8 /* FRBannerNormalCell.m */,
+				BBFA10A122126525009C8BB5 /* FRBannerManagerView.h */,
+				BBFA10A222126525009C8BB5 /* FRBannerManagerView.m */,
+				BBFA10A422126576009C8BB5 /* FRBannerModelProtocol.h */,
+				BB4D2B8C22127258004572A8 /* FRBannerGiftModel.h */,
+				BB4D2B8D22127258004572A8 /* FRBannerGiftModel.m */,
+			);
+			path = GiftBanner;
 			sourceTree = "<group>";
 		};
 		BBD4D26D218BE6F100854167 = {
@@ -104,37 +137,26 @@
 		BBD4D278218BE6F100854167 /* GiftBanner */ = {
 			isa = PBXGroup;
 			children = (
-				BB2FC26121ABEF9300FF6327 /* Encoder */,
-				BB155BE721A53E3500D7C10F /* Capture */,
-				BBD8437C2194208F00101A4F /* ChatView */,
-				BBD4D28B218BEB0600854167 /* GiftBannerView */,
+				BB45A12D22125E170081E845 /* GiftBanner */,
+				BB45A12122125DDE0081E845 /* Vender */,
 				BBD4D279218BE6F100854167 /* AppDelegate.swift */,
 				BBD4D27B218BE6F100854167 /* ViewController.swift */,
 				BBD4D27D218BE6F100854167 /* Main.storyboard */,
 				BBD4D280218BE6F200854167 /* Assets.xcassets */,
 				BBD4D282218BE6F200854167 /* LaunchScreen.storyboard */,
 				BBD4D285218BE6F200854167 /* Info.plist */,
+				BB2FC26221ABEFBD00FF6327 /* GiftBanner-Bridging-Header.h */,
 			);
 			path = GiftBanner;
 			sourceTree = "<group>";
 		};
-		BBD4D28B218BEB0600854167 /* GiftBannerView */ = {
+		BBE7438D2212B88900486FF1 /* GiftBannerTest */ = {
 			isa = PBXGroup;
 			children = (
-				BBD4D28C218BEB1F00854167 /* GiftBannerViewController.swift */,
-				BBD4D28E218BEB3700854167 /* GiftBannerModel.swift */,
-				BBD4D290218BEB4900854167 /* GiftBannerCell.swift */,
-				BBD4D292218BEEA100854167 /* GiftBannerGiftCell.swift */,
+				BBE743912212BF0D00486FF1 /* FRBannerTestViewController.h */,
+				BBE743922212BF0D00486FF1 /* FRBannerTestViewController.m */,
 			);
-			path = GiftBannerView;
-			sourceTree = "<group>";
-		};
-		BBD8437C2194208F00101A4F /* ChatView */ = {
-			isa = PBXGroup;
-			children = (
-				BBD8437D219420AF00101A4F /* ChatModel.swift */,
-			);
-			path = ChatView;
+			path = GiftBannerTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,17 +231,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB2FC26521ABEFBE00FF6327 /* H264Encoder.m in Sources */,
+				BB45A12A22125DF20081E845 /* NSDictionary+TMSafeUtils.m in Sources */,
 				BBD4D27C218BE6F100854167 /* ViewController.swift in Sources */,
-				BB155C3721A57B4300D7C10F /* CaptureViewController.swift in Sources */,
-				BBFC6D5021A6B21A000250B9 /* CaptureView.swift in Sources */,
-				BBD4D291218BEB4900854167 /* GiftBannerCell.swift in Sources */,
-				BBD4D28F218BEB3700854167 /* GiftBannerModel.swift in Sources */,
-				BBD8437E219420AF00101A4F /* ChatModel.swift in Sources */,
 				BBD4D27A218BE6F100854167 /* AppDelegate.swift in Sources */,
-				BBD4D28D218BEB1F00854167 /* GiftBannerViewController.swift in Sources */,
-				BB2FC25521A7A74400FF6327 /* Passthrough.metal in Sources */,
-				BBD4D293218BEEA100854167 /* GiftBannerGiftCell.swift in Sources */,
+				BBE743932212BF0D00486FF1 /* FRBannerTestViewController.m in Sources */,
+				BBFA10A322126525009C8BB5 /* FRBannerManagerView.m in Sources */,
+				BB45A12C22125DF20081E845 /* NSString+TMSafeUtils.m in Sources */,
+				BB45A12B22125DF20081E845 /* NSArray+TMSafeUtils.m in Sources */,
+				BBFA10A02212649A009C8BB5 /* FRBaseBannerCell.m in Sources */,
+				BB45A13022125F000081E845 /* TMLazyReusePool.m in Sources */,
+				BB4D2B9122127635004572A8 /* FRBannerNormalCell.m in Sources */,
+				BB4D2B8E22127258004572A8 /* FRBannerGiftModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +397,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fr.GiftBanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GiftBanner/Encoder/GiftBanner-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "GiftBanner/GiftBanner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -396,7 +418,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fr.GiftBanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GiftBanner/Encoder/GiftBanner-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "GiftBanner/GiftBanner-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

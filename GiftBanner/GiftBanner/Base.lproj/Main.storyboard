@@ -16,25 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Y-xD-Tev">
-                                <rect key="frame" x="172.5" y="607" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.52156862749999999" green="0.60392156860000001" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="5bS-Ep-Aa2"/>
-                                    <constraint firstAttribute="height" constant="30" id="oWa-nV-fSu"/>
-                                </constraints>
-                                <state key="normal" title="1"/>
-                                <connections>
-                                    <action selector="addOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eei-Cz-0Id"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v8Y-xD-Tev" secondAttribute="bottom" constant="30" id="162-nr-uzi"/>
-                            <constraint firstItem="v8Y-xD-Tev" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MpO-Vh-0eM"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="TGs-I8-8Pr">
