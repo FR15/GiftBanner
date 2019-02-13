@@ -73,8 +73,11 @@
 }
 
 - (BOOL)isDisplaying {
-    
     return _state != FRBannerNormalCellStateNone;
+}
+
+- (BOOL)isDismissing {
+    return _state == FRBannerNormalCellStateDismiss;
 }
 
 - (void)displayWithModel:(id<FRBannerModelProtocol>)model {
@@ -100,6 +103,44 @@
                      }
      ];
 }
+
+//--------------------------------------------- new func
+//- (void)new_increasingWithModel:(id<FRBannerModelProtocol>)model {
+//    
+//    if (!model) return;
+//    
+//    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+//    
+//    _state = FRBannerNormalCellStateAnimation;
+//    current_model = model;
+//    [self __increasingAnimationWithCount:model.g_cur_count completion:^{
+//        [self __completionHandlerWithDuration:model.g_duration];
+//    }];
+//    
+//    if (_state == FRBannerNormalCellStateDisplaying || _state == FRBannerNormalCellStateAnimation) {
+//        // 这一步会有问题
+//        // 正常情况下，model 是以时间顺序依次加入 arr
+//        // 但是因为网络问题，不能保证 接收到的 model 一定是按照时间顺序的
+//        // 会导致 在叠加的过程中，数字忽大忽小
+//        // 所以，要添加 model count 判断
+//        [_modelArr addObject:model];
+//    } else {
+//        
+//    }
+//}
+////- (void)__new_completionHandlerWithDuration:(float)duration {
+//    if (current_model.next) {
+//        id<FRBannerModelProtocol> model = current_model.next;
+//        if (model.g_cur_count > current_model.g_cur_count) { // 叠加
+//            [self new_increasingWithModel:model];
+//        } else { // 直接忽略
+//            [self __completionHandlerWithDuration:duration];
+//        }
+//    } else {
+//        [self performSelector:@selector(__dismissAnimation) withObject:nil afterDelay:duration]; //延迟dismiss
+//    }
+//}
+//--------------------------------------------- end
 
 // 累加
 - (void)increasingWithModel:(id<FRBannerModelProtocol>)model {
@@ -171,6 +212,12 @@
 }
 
 - (void)__dismissAnimation {
+    
+    // 这一步有问题
+    // 此时 cell 开始 dismiss animation
+    // cell 在 dismiss 时如果又 insert model
+    // 就会造成展示这个model 可能展示不出来
+    _state = FRBannerNormalCellStateDismiss;
     
     [UIView animateWithDuration:0.3
                           delay:0

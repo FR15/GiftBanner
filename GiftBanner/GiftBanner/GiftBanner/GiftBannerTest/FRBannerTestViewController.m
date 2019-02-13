@@ -13,6 +13,9 @@
 @interface FRBannerTestViewController ()
 {
     FRBannerManagerView *_mg;
+    NSInteger index;
+    dispatch_source_t timer1;
+    dispatch_source_t timer2;
 }
 @end
 
@@ -21,83 +24,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    index = 0;
+    
     _mg = [[FRBannerManagerView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) maxDisplayingCellCount:3];
     _mg.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:_mg];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-60.0, 60, 60)];
     btn.backgroundColor = [UIColor redColor];
-    [btn addTarget:self action:@selector(tap) forControlEvents: UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(tap:) forControlEvents: UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-}
-- (void)tap {
     
-//    [self singleWithCount:1 Callback:^(FRBannerGiftModel *model) {
-//        [self->_mg insertMsg:model];
-//    }];
-    
-//    [self groupWithCount:10 gid:3689950 uid:21998333 startCount:0 callback:^(FRBannerGiftModel *model) {
-//        [self->_mg insertMsg:model];
-//    }];
-    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        [self singleWithCount:10 Callback:^(FRBannerGiftModel *model) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self->_mg insertMsg:model];
-//            });
-//        }];
-//    });
-    
-    dispatch_async(q1, ^{
-        [self groupWithCount:10 gid:3689950 uid:21998333 startCount:0 callback:^(FRBannerGiftModel *model) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self->_mg insertMsg:model];
-            });
-        }];
-    });
-//
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        [self singleWithCount:1000 Callback:^(FRBannerGiftModel *model) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self->_mg insertMsg:model];
-//            });
-//        }];
-//    });
-//
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        [self groupWithCount:1000 gid:83728320 uid:821372738 startCount:9 callback:^(FRBannerGiftModel *model) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self->_mg insertMsg:model];
-//            });
-//        }];
-//    });
-}
-// 连续性的
-- (void)groupWithCount:(NSInteger)count
-                    gid:(NSInteger)gid
-                    uid:(NSInteger)uid
-             startCount:(NSInteger)startCount
-               callback:(void(^)(FRBannerGiftModel *model))callback {
-    NSInteger i = 0;
-    NSString *mid = [NSString stringWithFormat:@"%ld-%ld",uid, gid];
-    for (; i < count; i++) {
+    //
+    timer1 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_queue_create("timer1", NULL));
+    dispatch_source_set_timer(timer1, DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC, 0.0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer1, ^{
+        NSString *mid = @"21998333-3689950";
         FRBannerGiftModel *m = [FRBannerGiftModel new];
         m.g_date = [NSDate date];
-        m.g_id = gid;
-        m.u_id = uid;
+        m.g_id = 3689950;
+        m.u_id = 21998333;
         m.identifier = mid;
         m.g_type = 0;
         m.g_duration = 5.0;
-        m.g_cur_count = startCount + i + 1;
+        m.g_cur_count = self->index + 1;
         m.g_bef_count = m.g_cur_count - 1;
-        callback(m);
-    }
-}
-// 一次性的
-- (void)singleWithCount:(NSInteger)count Callback:(void(^)(FRBannerGiftModel *model))callback {
-
-    NSInteger i = 0;
-    for (; i < count; i++) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self->_mg insertMsg:m];
+        });
+        self->index++;
+    });
+    //
+    timer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_queue_create("timer2", NULL));
+    dispatch_source_set_timer(timer2, DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC, 0.0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer2, ^{
         int x = arc4random()%10000;
         FRBannerGiftModel *m = [FRBannerGiftModel new];
         m.g_date = [NSDate date];
@@ -108,9 +68,34 @@
         m.u_id = x + 10000;
         m.identifier = [NSString stringWithFormat:@"%ld-%ld", m.u_id, m.g_id];
         m.g_cur_count = x;
-        callback(m);
-    }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self->_mg insertMsg:m];
+        });
+    });
 }
-
+- (void)tap:(UIButton *)btn {
+    btn.selected = !btn.selected;
+    if (btn.selected) {
+        dispatch_resume(timer1);
+//        dispatch_resume(timer2);
+    } else {
+        dispatch_suspend(timer1);
+//        dispatch_suspend(timer2);
+    }
+    
+//    NSString *mid = @"21998333-3689950";
+//    FRBannerGiftModel *m = [FRBannerGiftModel new];
+//    m.g_date = [NSDate date];
+//    m.g_id = 3689950;
+//    m.u_id = 21998333;
+//    m.identifier = mid;
+//    m.g_type = 0;
+//    m.g_duration = 5.0;
+//    m.g_cur_count = self->index + 1;
+//    m.g_bef_count = m.g_cur_count - 1;
+//    [self->_mg insertMsg:m];
+//    self->index++;
+    
+}
 
 @end
