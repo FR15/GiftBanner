@@ -54,8 +54,8 @@
         });
         self->index++;
     });
-    //
-    timer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_queue_create("timer2", NULL));
+    // dispatch_queue_create("timer2", NULL)
+    timer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
     dispatch_source_set_timer(timer2, DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC, 0.0 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(timer2, ^{
         int x = arc4random()%10000;
@@ -68,9 +68,10 @@
         m.u_id = x + 10000;
         m.identifier = [NSString stringWithFormat:@"%ld-%ld", m.u_id, m.g_id];
         m.g_cur_count = x;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self->_mg insertMsg:m];
-        });
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//
+//        });
+        [self->_mg insertMsg:m];
     });
 }
 - (void)tap:(UIButton *)btn {

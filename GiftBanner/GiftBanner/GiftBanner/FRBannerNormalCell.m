@@ -21,7 +21,7 @@
     UILabel *_giftLabel;
     UILabel *_senderLabel;
     NSMutableArray<id<FRBannerModelProtocol>> *_modelArr;
-    id<FRBannerModelProtocol> current_model;
+    NSInteger _current_count;
     FRBannerNormalCellState _state;
 }
 @end
@@ -68,10 +68,6 @@
     _giftLabel.frame = CGRectMake(25.0, CGRectGetMaxY(_senderLabel.frame), self.bounds.size.width-90.0, (self.bounds.size.height-10.0)*0.5);
 }
 
-- (id<FRBannerModelProtocol>)model {
-    return current_model;
-}
-
 - (BOOL)isDisplaying {
     return _state != FRBannerNormalCellStateNone;
 }
@@ -82,8 +78,8 @@
 
 - (void)displayWithModel:(id<FRBannerModelProtocol>)model {
     
-    if (!model) return;
-    [self __resetWithModel:model];
+    if (!self.model) return;
+    [self __resetWithModel:self.model];
     // 这一步会有问题
     // 问题： 调用 displayWithModel: 之后
     // cell 在展示动画
@@ -99,53 +95,16 @@
                      animations:^{ [self animationForDisplay]; }
                      completion:^(BOOL finished) {
                          self->_state = FRBannerNormalCellStateDisplayed;
-                         [self increasingWithModel:model];
+                         [self increasingWithModel:self.model];
                      }
      ];
 }
-
-//--------------------------------------------- new func
-//- (void)new_increasingWithModel:(id<FRBannerModelProtocol>)model {
-//    
-//    if (!model) return;
-//    
-//    [NSObject cancelPreviousPerformRequestsWithTarget:self];
-//    
-//    _state = FRBannerNormalCellStateAnimation;
-//    current_model = model;
-//    [self __increasingAnimationWithCount:model.g_cur_count completion:^{
-//        [self __completionHandlerWithDuration:model.g_duration];
-//    }];
-//    
-//    if (_state == FRBannerNormalCellStateDisplaying || _state == FRBannerNormalCellStateAnimation) {
-//        // 这一步会有问题
-//        // 正常情况下，model 是以时间顺序依次加入 arr
-//        // 但是因为网络问题，不能保证 接收到的 model 一定是按照时间顺序的
-//        // 会导致 在叠加的过程中，数字忽大忽小
-//        // 所以，要添加 model count 判断
-//        [_modelArr addObject:model];
-//    } else {
-//        
-//    }
-//}
-////- (void)__new_completionHandlerWithDuration:(float)duration {
-//    if (current_model.next) {
-//        id<FRBannerModelProtocol> model = current_model.next;
-//        if (model.g_cur_count > current_model.g_cur_count) { // 叠加
-//            [self new_increasingWithModel:model];
-//        } else { // 直接忽略
-//            [self __completionHandlerWithDuration:duration];
-//        }
-//    } else {
-//        [self performSelector:@selector(__dismissAnimation) withObject:nil afterDelay:duration]; //延迟dismiss
-//    }
-//}
-//--------------------------------------------- end
 
 // 累加
 - (void)increasingWithModel:(id<FRBannerModelProtocol>)model {
     
     if (!model) return;
+    if (![model.identifier isEqualToString:self.model.identifier]) return;
     
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
@@ -158,7 +117,6 @@
         [_modelArr addObject:model];
     } else {
         _state = FRBannerNormalCellStateAnimation;
-        current_model = model;
         [self __increasingAnimationWithCount:model.g_cur_count completion:^{
             [self __completionHandlerWithDuration:model.g_duration];
         }];
@@ -167,7 +125,7 @@
 // 叠加动画
 - (void)__increasingAnimationWithCount:(NSInteger)count completion:(void(^)(void))completionHandler {
     
-//    if (count > 999) count = 999;
+    _current_count = count;
     
     _numLabel.text = [NSString stringWithFormat:@"x %ld", count];
     CGSize tem_size = [_numLabel sizeThatFits:CGSizeZero];
@@ -201,7 +159,7 @@
     if (_modelArr.count > 0) {
         id<FRBannerModelProtocol> model = _modelArr.firstObject;
         [_modelArr removeObject:model];
-        if (model.g_cur_count > current_model.g_cur_count) { // 叠加
+        if (model.g_cur_count > _current_count) { // 叠加
             [self increasingWithModel:model];
         } else { // 直接忽略
             [self __completionHandlerWithDuration:duration];
