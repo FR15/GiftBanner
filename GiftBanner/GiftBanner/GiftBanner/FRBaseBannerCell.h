@@ -25,14 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FRBaseBannerCell : UIView
 
 @property (nonatomic, copy) NSString *reuseIdentifer;
-@property (nonatomic, strong) id<FRBannerModelProtocol> model;
+@property (nonatomic, strong, nullable) id<FRBannerModelProtocol> model;
 @property (nonatomic, readonly, assign, getter=isDisplaying) BOOL displaying; // 是否处于展示状态
 @property (nonatomic, readonly, assign, getter=isDismissing) BOOL dismissing; // 是否处于消失动画状态
 @property (nonatomic, weak) id<FRBannerCellDelegate> delegate;
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier;
-- (void)displayWithModel:(id<FRBannerModelProtocol>)model;
-- (void)dismiss;
+- (void)banner_display;
+- (void)banner_dismiss;
 - (void)animationForDisplay;
 - (void)animationForDismiss;
 - (void)reset; 

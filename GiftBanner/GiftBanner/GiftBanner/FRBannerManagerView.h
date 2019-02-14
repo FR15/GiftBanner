@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFrame:(CGRect)frame maxDisplayingCellCount:(NSInteger)maxCount;
 
-// start
 - (void)insertMsg:(id<FRBannerModelProtocol>)model;
 
 @end

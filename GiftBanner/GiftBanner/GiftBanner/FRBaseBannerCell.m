@@ -19,10 +19,10 @@
     return self;
 }
 
-- (void)displayWithModel:(id<FRBannerModelProtocol>)model {
+- (void)banner_display {
     NSAssert(NO, @"不应该走基类的方法 displayWithModel");
 }
-- (void)dismiss {
+- (void)banner_dismiss {
     NSAssert(NO, @"不应该走基类的方法 dismiss");
 }
 - (void)reset {

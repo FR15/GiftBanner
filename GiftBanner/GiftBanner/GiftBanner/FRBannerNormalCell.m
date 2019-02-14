@@ -76,7 +76,7 @@
     return _state == FRBannerNormalCellStateDismiss;
 }
 
-- (void)displayWithModel:(id<FRBannerModelProtocol>)model {
+- (void)banner_display {
     
     if (!self.model) return;
     [self __resetWithModel:self.model];
@@ -152,16 +152,16 @@
                          }];
                      }
      ];
-    
 }
-// 取叠加队列
+// 闭环
 - (void)__completionHandlerWithDuration:(float)duration {
     if (_modelArr.count > 0) {
         id<FRBannerModelProtocol> model = _modelArr.firstObject;
         [_modelArr removeObject:model];
-        if (model.g_cur_count > _current_count) { // 叠加
+        // 这里要求数字只能递增
+        if (model.g_cur_count > _current_count) {
             [self increasingWithModel:model];
-        } else { // 直接忽略
+        } else {
             [self __completionHandlerWithDuration:duration];
         }
     } else {
@@ -174,7 +174,8 @@
     // 这一步有问题
     // 此时 cell 开始 dismiss animation
     // cell 在 dismiss 时如果又 insert model
-    // 就会造成展示这个model 可能展示不出来
+    // 就会造成展示这个 model 可能展示不出来
+    // 需要更具 state 做判断
     _state = FRBannerNormalCellStateDismiss;
     
     [UIView animateWithDuration:0.3
@@ -202,6 +203,7 @@
         _senderLabel.text = [NSString stringWithFormat:@"usr: %ld", model.u_id];
         _giftLabel.text = [NSString stringWithFormat:@"gift: %ld", model.g_id];
     } else {
+        self.model = nil;
         _bgIV.image = nil;
         _giftIV.image = nil;
         _senderLabel.text = nil;
