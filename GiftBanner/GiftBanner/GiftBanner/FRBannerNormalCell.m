@@ -204,6 +204,8 @@
         _giftLabel.text = [NSString stringWithFormat:@"gift: %ld", model.g_id];
     } else {
         self.model = nil;
+        [_modelArr removeAllObjects];
+        _current_count = 0;
         _bgIV.image = nil;
         _giftIV.image = nil;
         _senderLabel.text = nil;
