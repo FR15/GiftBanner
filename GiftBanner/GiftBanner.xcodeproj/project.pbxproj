@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB3667EE21B627DD00A76F7D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3667ED21B627DD00A76F7D /* AVFoundation.framework */; };
 		BB45A12A22125DF20081E845 /* NSDictionary+TMSafeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45A12722125DF20081E845 /* NSDictionary+TMSafeUtils.m */; };
 		BB45A12B22125DF20081E845 /* NSArray+TMSafeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45A12822125DF20081E845 /* NSArray+TMSafeUtils.m */; };
 		BB45A12C22125DF20081E845 /* NSString+TMSafeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45A12922125DF20081E845 /* NSString+TMSafeUtils.m */; };
@@ -61,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB3667EE21B627DD00A76F7D /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
